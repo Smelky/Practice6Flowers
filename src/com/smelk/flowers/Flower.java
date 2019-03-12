@@ -1,4 +1,7 @@
 package com.smelk.flowers;
 
-public class Flower {
+public class Flower<T> {
+    public void getName() {
+
+    }
 }
