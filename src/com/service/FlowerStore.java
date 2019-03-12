@@ -1,15 +1,20 @@
-package com.smelk.flowers;
+package com.service;
+
+import com.flowers.Chamomile;
+import com.flowers.Flower;
+import com.flowers.Rose;
+import com.flowers.Tulip;
 
 public class FlowerStore {
     private int wallet;
-    private Flower[] bouquetOfFlowersForSell;
-    private Flower[] bouquetOfFlowersForSellSequence;
+    private Flower[] showBouquetOfFlowersForSell;
+    private Flower[] showBouquetOfFlowersForSellSequence;
 
     public Flower[] sell(int numOfRose, int numOfTulip, int numOfChamomile) {
         int numOfFlowers = numOfChamomile + numOfRose + numOfTulip;
         Flower[] arrayOfFlowers = new Flower[numOfFlowers];
         createFlowers(arrayOfFlowers, numOfRose, numOfTulip, numOfChamomile);
-        bouquetOfFlowersForSell = arrayOfFlowers;
+        showBouquetOfFlowersForSell = arrayOfFlowers;
         return arrayOfFlowers;
 
     }
@@ -39,7 +44,7 @@ public class FlowerStore {
                 wallet += Tulip.getPrice();
             }
         }
-        bouquetOfFlowersForSellSequence = arrayOfFlowers;
+        showBouquetOfFlowersForSellSequence = arrayOfFlowers;
         return arrayOfFlowers;
     }
 
@@ -65,13 +70,13 @@ public class FlowerStore {
     }
 
     public void showBouquetOfFlowers() {
-        for (int i = 0; i < bouquetOfFlowersForSell.length; i++) {
-            bouquetOfFlowersForSell[i].getName();
+        for (int i = 0; i < showBouquetOfFlowersForSell.length; i++) {
+            System.out.print(showBouquetOfFlowersForSell[i].getClass().getSimpleName());
             System.out.print(", ");
         }
         System.out.println("and greeting card.");
-        for (int i = 0; i < bouquetOfFlowersForSellSequence.length; i++) {
-            bouquetOfFlowersForSellSequence[i].getName();
+        for (int i = 0; i < showBouquetOfFlowersForSellSequence.length; i++) {
+            System.out.print(showBouquetOfFlowersForSellSequence[i].getClass().getSimpleName());
             System.out.print(", ");
         }
         System.out.println("and greeting card.");

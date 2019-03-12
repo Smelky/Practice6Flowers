@@ -1,8 +1,8 @@
-package com.smelk;
+package com;
 
-import com.smelk.flowers.FlowerStore;
+import com.service.FlowerStore;
 
-public class FlowersApp {
+public class FlowersApplication {
 
     public static void main(String[] args) {
 
