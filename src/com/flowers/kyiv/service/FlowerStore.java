@@ -68,27 +68,20 @@ public class FlowerStore {
         System.out.println("The shop wallet has: " + wallet + " UAH");
     }
 
-    public void showBouquetOfFlowers(Flower[] showBouquetOfFlowersForSell) {
-        try {
-            for (Flower flower : showBouquetOfFlowersForSell) {
-                System.out.print(flower.toString());
-                System.out.print(", ");
-            }
-            System.out.println("and greeting card.");
-        } catch (NullPointerException e) {
-            System.out.println("The bouquet is empty");
+    private void showBouquetOfFlowers(Flower[] showBouquetOfFlowersForSell) {
+        for (Flower flower : showBouquetOfFlowersForSell) {
+            System.out.print(flower.toString());
+            System.out.print(", ");
         }
+        System.out.println("and greeting card.");
+
     }
 
-    public void showBouquetOfFlowersSequence(Flower[] showBouquetOfFlowersForSellSequence) {
-        try {
-            for (int i = 0; i < showBouquetOfFlowersForSellSequence.length; i++) {
-                System.out.print(showBouquetOfFlowersForSellSequence[i].toString());
-                System.out.print(", ");
-            }
-            System.out.println("and greeting card.");
-        } catch (NullPointerException e) {
-            System.out.println("The bouquetSequence is empty");
+    private void showBouquetOfFlowersSequence(Flower[] showBouquetOfFlowersForSellSequence) {
+        for (Flower flower : showBouquetOfFlowersForSellSequence) {
+            System.out.print(flower.toString());
+            System.out.print(", ");
         }
+        System.out.println("and greeting card.");
     }
 }
