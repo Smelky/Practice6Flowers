@@ -9,8 +9,9 @@ public class FlowersApplication {
         FlowerStore flowerStore = new FlowerStore();
 
         flowerStore.sell(2, 2, 2);
+        flowerStore.sell(1, 3, 1);
         flowerStore.sellSequence(5, 3, 1);
-        flowerStore.showBouquetOfFlowers();
+        flowerStore.sellSequence(2, 3, 2);
         flowerStore.getWalletCount();
     }
 }

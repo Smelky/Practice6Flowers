@@ -2,7 +2,7 @@ package com.flowers.kyiv.entity;
 
 public class Chamomile extends Flower {
 
-    public Chamomile(int price) {
-        super(price);
+    public Chamomile() {
+        super(70);
     }
 }

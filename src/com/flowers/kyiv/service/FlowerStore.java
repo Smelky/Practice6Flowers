@@ -10,55 +10,55 @@ import java.util.List;
 
 public class FlowerStore {
     private int wallet;
-    private Object[] showBouquetOfFlowersForSell;
-    private Object[] showBouquetOfFlowersForSellSequence;
 
     public Flower[] sell(int numOfRose, int numOfTulip, int numOfChamomile) {
         int numOfFlowers = numOfChamomile + numOfRose + numOfTulip;
         Flower[] arrayOfFlowers = new Flower[numOfFlowers];
         createFlowers(arrayOfFlowers, numOfRose, numOfTulip, numOfChamomile);
-        showBouquetOfFlowersForSell = arrayOfFlowers;
+        showBouquetOfFlowers(arrayOfFlowers);
         return arrayOfFlowers;
 
     }
 
-    public Object[] sellSequence(int numOfRose, int numOfTulip, int numOfChamomile) {
+    public Flower[] sellSequence(int numOfRose, int numOfTulip, int numOfChamomile) {
         int numOfFlowers = numOfChamomile + numOfRose + numOfTulip;
         List<Flower> listOfFlowers = new ArrayList<>();
         int temp = 0;
         for (int i = 0; i < numOfFlowers; i++) {
             if (i < numOfRose) {
-                listOfFlowers.add(new Rose(100));
+                listOfFlowers.add(new Rose());
                 wallet += listOfFlowers.get(temp).getPrice();
                 temp++;
             }
             if (i < numOfChamomile) {
-                listOfFlowers.add(new Chamomile(70));
+                listOfFlowers.add(new Chamomile());
                 wallet += listOfFlowers.get(temp).getPrice();
                 temp++;
             }
             if (i < numOfTulip) {
-                listOfFlowers.add(new Tulip(45));
+                listOfFlowers.add(new Tulip());
                 wallet += listOfFlowers.get(temp).getPrice();
                 temp++;
             }
         }
-        showBouquetOfFlowersForSellSequence = listOfFlowers.toArray();
-        return listOfFlowers.toArray();
+        Flower[] arrayOfFlower = new Flower[listOfFlowers.size()];
+        arrayOfFlower = listOfFlowers.toArray(arrayOfFlower);
+        showBouquetOfFlowersSequence(arrayOfFlower);
+        return arrayOfFlower;
     }
 
     private Flower[] createFlowers(Flower[] arrayOfFlowers, int numOfRose, int numOfTulip, int numOfChamomile) {
         int numOfFlowers = numOfChamomile + numOfRose + numOfTulip;
         for (int i = 0; i < numOfRose; i++) {
-            arrayOfFlowers[i] = new Rose(100);
+            arrayOfFlowers[i] = new Rose();
             wallet += arrayOfFlowers[i].getPrice();
         }
         for (int i = numOfRose; i < numOfTulip + numOfRose; i++) {
-            arrayOfFlowers[i] = new Tulip(45);
+            arrayOfFlowers[i] = new Tulip();
             wallet += arrayOfFlowers[i].getPrice();
         }
         for (int i = numOfTulip + numOfRose; i < numOfFlowers; i++) {
-            arrayOfFlowers[i] = new Chamomile(70);
+            arrayOfFlowers[i] = new Chamomile();
             wallet += arrayOfFlowers[i].getPrice();
         }
         return arrayOfFlowers;
@@ -68,16 +68,27 @@ public class FlowerStore {
         System.out.println("The shop wallet has: " + wallet + " UAH");
     }
 
-    public void showBouquetOfFlowers() {
-        for (int i = 0; i < showBouquetOfFlowersForSell.length; i++) {
-            System.out.print(showBouquetOfFlowersForSell[i].toString());
-            System.out.print(", ");
+    public void showBouquetOfFlowers(Flower[] showBouquetOfFlowersForSell) {
+        try {
+            for (Flower flower : showBouquetOfFlowersForSell) {
+                System.out.print(flower.toString());
+                System.out.print(", ");
+            }
+            System.out.println("and greeting card.");
+        } catch (NullPointerException e) {
+            System.out.println("The bouquet is empty");
         }
-        System.out.println("and greeting card.");
-        for (int i = 0; i < showBouquetOfFlowersForSellSequence.length; i++) {
-            System.out.print(showBouquetOfFlowersForSellSequence[i].toString());
-            System.out.print(", ");
+    }
+
+    public void showBouquetOfFlowersSequence(Flower[] showBouquetOfFlowersForSellSequence) {
+        try {
+            for (int i = 0; i < showBouquetOfFlowersForSellSequence.length; i++) {
+                System.out.print(showBouquetOfFlowersForSellSequence[i].toString());
+                System.out.print(", ");
+            }
+            System.out.println("and greeting card.");
+        } catch (NullPointerException e) {
+            System.out.println("The bouquetSequence is empty");
         }
-        System.out.println("and greeting card.");
     }
 }
