@@ -1,6 +1,6 @@
-package com;
+package com.flowers.kyiv;
 
-import com.service.FlowerStore;
+import com.flowers.kyiv.service.FlowerStore;
 
 public class FlowersApplication {
 
@@ -12,6 +12,5 @@ public class FlowersApplication {
         flowerStore.sellSequence(5, 3, 1);
         flowerStore.showBouquetOfFlowers();
         flowerStore.getWalletCount();
-
     }
 }
