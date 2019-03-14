@@ -20,8 +20,10 @@ public class FlowerStore {
 
     }
 
-    public Flower[] sellSequence(int numOfRose, int numOfTulip, int numOfChamomile) {
-        int numOfFlowers = numOfChamomile + numOfRose + numOfTulip;
+    public Flower[] sellSequence(int numOfRose, int numOfChamomile, int numOfTulip) {
+        int numOfFlowers = numOfRose > numOfChamomile & numOfRose > numOfTulip ? numOfRose
+                : numOfChamomile > numOfTulip & numOfChamomile > numOfRose ? numOfChamomile
+                : numOfTulip;
         List<Flower> listOfFlowers = new ArrayList<>();
         int temp = 0;
         for (int i = 0; i < numOfFlowers; i++) {

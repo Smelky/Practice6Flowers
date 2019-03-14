@@ -1,6 +1,6 @@
 package com.flowers.kyiv.entity;
 
-public class Flower {
+public abstract class Flower {
 
     private int price;
 
