@@ -21,12 +21,12 @@ public class FlowerStore {
     }
 
     public Flower[] sellSequence(int numOfRose, int numOfChamomile, int numOfTulip) {
-        int numOfFlowers = numOfRose > numOfChamomile & numOfRose > numOfTulip ? numOfRose
+        int maxNumOfFlowers = numOfRose > numOfChamomile & numOfRose > numOfTulip ? numOfRose
                 : numOfChamomile > numOfTulip & numOfChamomile > numOfRose ? numOfChamomile
                 : numOfTulip;
         List<Flower> listOfFlowers = new ArrayList<>();
         int temp = 0;
-        for (int i = 0; i < numOfFlowers; i++) {
+        for (int i = 0; i < maxNumOfFlowers; i++) {
             if (i < numOfRose) {
                 listOfFlowers.add(new Rose());
                 wallet += listOfFlowers.get(temp).getPrice();
