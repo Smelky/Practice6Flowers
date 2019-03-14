@@ -21,12 +21,9 @@ public class FlowerStore {
     }
 
     public Flower[] sellSequence(int numOfRose, int numOfChamomile, int numOfTulip) {
-        int maxNumOfFlowers = numOfRose > numOfChamomile & numOfRose > numOfTulip ? numOfRose
-                : numOfChamomile > numOfTulip & numOfChamomile > numOfRose ? numOfChamomile
-                : numOfTulip;
         List<Flower> listOfFlowers = new ArrayList<>();
         int temp = 0;
-        for (int i = 0; i < maxNumOfFlowers; i++) {
+        for (int i = 0; i < findMaxValueOfFlowers(numOfChamomile, numOfRose, numOfTulip); i++) {
             if (i < numOfRose) {
                 listOfFlowers.add(new Rose());
                 wallet += listOfFlowers.get(temp).getPrice();
@@ -85,5 +82,9 @@ public class FlowerStore {
             System.out.print(", ");
         }
         System.out.println("and greeting card.");
+    }
+
+    private int findMaxValueOfFlowers(int first, int second, int third) {
+        return Math.max(first, Math.max(second, third));
     }
 }
